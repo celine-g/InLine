@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap');
+
+/* Grid Seitenaufteilung*/
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'header header' 
+    'menu main';
+}
+
+/* Allgemeine Informationen*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* CSS header */
+header {
+    grid-area: header; 
+    background-color: lightcyan;
+}
+
+header>* {
+    padding-top: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+    padding-top: 30px;
+    font-family: 'ZCOOL XiaoWei', serif;
+    color: darkslategrey;
+}
+
+/* CSS menu */
+menu {
+    grid-area: menu; 
+}
+
+.liste {
+    height: 10em;
+    width: 15em; 
+    color: pink; 
+    border-style: solid; 
+    border-color: grey; 
+    border-width: 5px; 
+    margin: 10px; 
+}
+
+#supermarkt, #apotheke {
+    margin-left: 2.5em; 
+    margin-top: 2.5em; 
+}
+#drogerie, #baumarkt {
+   margin-left: 21em; 
+   margin-top: -11.2em; 
+}
+
+#supermarkt {
+    background-image: url(bilder/supermarkt.jpg);
+    background-size: 160%; 
+}
+
+#drogerie {
+    background-image: url(bilder/drogerie.jpg);
+    background-size: 160%; 
+    -webkit-filter: blur(0.4px);
+    filter: blur(0.4px);
+}
+
+#apotheke {
+    background-image: url(bilder/apotheke.jpg);
+    background-size: 120%; 
+    -webkit-filter: blur(0.4px);
+    filter: blur(0.4px);
+}
+
+#baumarkt {
+    background-image: url(bilder/baumarkt.jpg);
+    background-size: 130%; 
+    -webkit-filter: blur(0.4px);
+    filter: blur(0.4px);
+}
+
+
+.liste a {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* CSS main */
+main {
+    grid-area: main; 
+}
+
+#einkaufsliste {
+    width: 30em; 
+    height: 60em; 
+    border-style: solid; 
+    border-width: 1em; 
+    border-color: grey; 
+    background-color: lightgray;
+    margin-top: 2.5em; 
+    margin-left: 5em; 
+}
+
+
