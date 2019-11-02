@@ -20,27 +20,49 @@
     </header>
     <menu>
         <div class="liste" id="supermarkt">
-            <a id="replace1" value="5da717af7736ad00170dd8f8" onclick="getList('5da717aa7736ad00170dd8f7')">Supermarkt</a>
+            <a onclick="getList('5da717aa7736ad00170dd8f7')">Supermarkt</a>
         </div>
-        <div class="liste" id="drogerie">
-            <a href="liste.html" id="replace">Drogerie</a>
+        <div class="liste" id="baeckerei">
+            <a onclick="getList('5da717b87736ad00170dd8f9')">Bäckerei</a>
         </div>
         <div class="liste" id="apotheke">
-            <a href="liste.html" id="replace">Apotheke</a>
+            <a onclick="getList('5da717bf7736ad00170dd8fa')">Apotheke</a>
+        </div>
+        <div class="liste" id="drogerie">
+            <a onclick="getList('5da717af7736ad00170dd8f8')">Drogerie</a>
         </div>
         <div class="liste" id="baumarkt">
-            <a href="liste.html" id="replace">Baumarkt</a>
+            <a onclick="getList('5da717c57736ad00170dd8fb')">Baumarkt</a>
         </div>
-
-        <form class="form" id="myForm" enctype="application/json">
-            <label for="inp_newItem">Username</label>
-            <input type="text" name="inp_newItem" id="inp_password">
-            <button type="submit">ADD ITEM</button>
-        </form>
+        <div class="liste" id="sonstiges">
+            <a onclick="getList('5da717de7736ad00170dd8fc')">Sonstiges</a>
+        </div>
     </menu>
     <main>
         <div id="einkaufsliste">
-            <p>Einkaufsliste </p>
+
+            <input type="text" name="itemHinzufuegen" id="itemHinzufuegen_input">
+            <button type="button" onclick="itemHinzufuegen()">bzui</button>
+
+            <p id="standardText">Bitte eine Liste zum Anzeigen auswählen</p>
+
+            <h2 id="listName"></h2>
+            <ul>
+                <li id="item0"></li>
+                <li id="item1"></li>
+                <li id="item2"></li>
+                <li id="item3"></li>
+                <li id="item4"></li>
+                <li id="item5"></li>
+                <li id="item6"></li>
+                <li id="item7"></li>
+                <li id="item8"></li>
+                <li id="item9"></li>
+                <li id="item10"></li>
+                <li id="item11"></li>
+                <li id="item12"></li>
+            </ul>
+
         </div>
     </main>
 

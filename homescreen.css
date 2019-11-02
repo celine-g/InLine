@@ -112,5 +112,7 @@ main {
     margin-top: 2.5em; 
     margin-left: 5em; 
 }
-
+ ul{
+     list-style-type: none;
+ }
 
