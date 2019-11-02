@@ -1,8 +1,8 @@
-const baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/"
+/*const baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/"
 
 var auto = [].name;
 $("#replace").click(function () {
-    $('.content').replaceWith(<h1>Text</h1>;
+    $('.content').replaceWith("<h1>Text</h1>");
 });
 
 
@@ -58,33 +58,4 @@ myForm.addEventListener('submit', function (e) {
     // .catch(function (error) {
     //     console.error(error); 
     // })
-});
-
-
-
-function getParameters()
-{
-    var parameterFragments = location.search.substr(1).split("&");
-    var parameters = {}
-    for(var i = 0; i < parameterFragments.length; i++)
-    {
-        var splittedParameter = parameterFragments[i].split("=");
-        parameters[splittedParameter[0]] = decodeURIComponent(splittedParameter[1]);
-    }
-    return parameters;
-}
-
-var parameters = getParameters();
-console.log(parameters); // Object { name: "Klaus Meier", alter: "25" }
-console.log(parameters.name) // Klaus Meier
-console.log(parameters.alter) // 25
-
-
-var listID_supermarkt = "5da717aa7736ad00170dd8f7";
-var listID_apotheke = "5da717bf7736ad00170dd8fa";
-
-function openSupermarkt () {
-    // var url= "liste.html"; 
-    // window.location = url; 
-    document.write('<a href="liste.html?id=' + listID_supermarkt + '"> Klick </a>');
-}
+});*/
