@@ -29,7 +29,9 @@ function getList(uebergebene_listId) {
             for (let i = 0; i < jsonObjekt.items.length; i++) {
                 var htmlId = "item" + i;
                 if (jsonObjekt.items[i].name != null) {
-                    document.getElementById(htmlId).innerHTML = '<input type="checkbox" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')">' + jsonObjekt.items[i].name + '<button onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>';
+                    document.getElementById(htmlId).innerHTML = 
+                    '<form class="form"><div class="inputGroup"><input type="checkbox" id="option1"><label for="option1" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')></label></div></form>'
+                   + jsonObjekt.items[i].name + '<button onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>';
                 }
             }
             document.getElementById("listName").innerHTML = jsonObjekt.name;
@@ -96,6 +98,7 @@ function itemLoeschen(itemId) {
 
 }
 
+//Funktion, um Status des Items zu setzen (Abhaken)
 function itemAbhaken(itemId) {
 
     var url = baseUrl + listId + "/items/" + itemId;
@@ -118,5 +121,4 @@ function itemAbhaken(itemId) {
     request.send();
 
 }
-
 }
