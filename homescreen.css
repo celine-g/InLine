@@ -1,22 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap');
-
 /* Grid Seitenaufteilung*/
+
 .container {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: 100px 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    'header header' 
-    'menu main';
+    grid-template-rows: 100px auto 100px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'header' 'main' 'footer';
 }
 
 /* Allgemeine Informationen*/
+
 body {
     margin: 0;
     padding: 0;
-    background: black;
 }
 
 * {
@@ -24,9 +22,11 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* CSS header */
+
 header {
-    grid-area: header; 
+    grid-area: header;
     background-color: lightcyan;
 }
 
@@ -38,35 +38,47 @@ header>* {
 h1 {
     font-size: 32px;
     padding-top: 30px;
-    font-family: 'ZCOOL XiaoWei', serif;
+    /*font-family: 'ZCOOL XiaoWei', serif;*/
+    font-family: 'Oxygen', sans-serif;
     color: darkslategrey;
+    font-style: none;
 }
 
-/* CSS menu */
-menu {
-    grid-area: menu; 
-}
+/* CSS main */
+
+/* Menüzeile */
 
 .liste {
-    height: 10em;
-    width: 15em; 
-    color: pink; 
-    border-style: solid; 
-    border-color: grey; 
-    border-width: 5px; 
-    margin: 10px; 
+    height: 42px;
+    width: 110px;
+    color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    margin: 40px 10px 10px 58px;
+    float: left;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*padding-top: 15px; 
+    padding-left: 15px; */
 }
 
-#supermarkt, #apotheke {
+.liste:hover {
+    transform: scale(1.2);
+}
+
+/*#supermarkt, #apotheke {
     margin-left: 2.5em; 
     margin-top: 2.5em; 
 }
 #drogerie, #baumarkt {
    margin-left: 21em; 
    margin-top: -11.2em; 
-}
+}  löschen */
 
-#supermarkt {
+/*#supermarkt {
     background-image: url(bilder/supermarkt.jpg);
     background-size: 160%; 
 }
@@ -90,30 +102,34 @@ menu {
     background-size: 130%; 
     -webkit-filter: blur(0.4px);
     filter: blur(0.4px);
-}
+} */
 
-
-.liste a {
+main .liste a {
     text-align: center;
     vertical-align: middle;
 }
 
-/* CSS main */
+/* Listenansicht */
+
 main {
-    grid-area: main; 
+    grid-area: main;
+    background-image: url(bilder/drogerie.jpg);
+    background-size: 100%;
 }
 
 #einkaufsliste {
-    width: 30em; 
-    height: 60em; 
-    border-style: solid; 
-    border-width: 1em; 
-    border-color: grey; 
-    background-color: lightgray;
-    margin-top: 2.5em; 
-    margin-left: 5em; 
+    width: 100%;
+    height: 30em;
+    background: rgb(58, 56, 56);
+    background: hsla(350, 50%, 90%, 0.8);
+    color: black;
+    border-top: 8px solid white;
+    border-bottom: 8px solid white;
+    transition: background 1s;
+    margin: 4em 0;
+    padding: 100px 40px 40px 40px;
 }
- ul{
-     list-style-type: none;
- }
 
+ul {
+    list-style-type: none;
+}
