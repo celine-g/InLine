@@ -27,10 +27,10 @@ body {
 
 header {
     grid-area: header;
-    background-color: lightcyan;
+    background-image: linear-gradient(hsla(350, 50%, 90%, 0.8), darkgrey) ;
 }
 
-header>* {
+header> * {
     padding-top: 40px;
     text-align: center;
 }
@@ -40,7 +40,7 @@ h1 {
     padding-top: 30px;
     /*font-family: 'ZCOOL XiaoWei', serif;*/
     font-family: 'Oxygen', sans-serif;
-    color: darkslategrey;
+    color: black;
     font-style: none;
 }
 
@@ -113,7 +113,7 @@ main .liste a {
 
 main {
     grid-area: main;
-    background-image: url(bilder/drogerie.jpg);
+    background-image: url(bilder/background.jpg);
     background-size: 100%;
 }
 

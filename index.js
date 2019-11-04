@@ -53,9 +53,9 @@ function getList(uebergebene_listId) {
 
             /*Sobald eine Liste ausgewählt wurde, wird Eingabefeld für neues Item 
             angezeigt, indem style="hidden" aufgehoben wird*/
-            for (var i = 0, h1 = document.getElementsByTagName("h1"); i < h1.length; i++) {
-                h1[i].style.color = "red";
-            }
+            // for (var i = 0, h1 = document.getElementsByTagName("h1"); i < h1.length; i++) {
+            //     h1[i].style.color = "red";
+            // }
 
             //Variable listId setzen, damit ItemsHinzufuegen()-Funktion damit "arbeiten" kann
             listId = jsonObjekt._id;
