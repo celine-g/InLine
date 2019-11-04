@@ -1,5 +1,7 @@
 const baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/";
 var listId;
+var aktuellesJson;
+
 
 //Funktion um bei Klick auf eine Liste, diese im Feld rechts anzeigen zu lassen
 function getList(uebergebene_listId) {
@@ -29,13 +31,25 @@ function getList(uebergebene_listId) {
             for (let i = 0; i < jsonObjekt.items.length; i++) {
                 var htmlId = "item" + i;
                 if (jsonObjekt.items[i].name != null) {
-                    document.getElementById(htmlId).innerHTML = 
-                    '<input type="checkbox" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')">'
-                   + jsonObjekt.items[i].name + '<button onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>';
+                    //Wenn Itemstatus = true wird item mit 
+                    if(jsonObjekt.items[i].bought == true){
+                        document.getElementById(htmlId).innerHTML =
+                        '<input type="checkbox" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')" checked>'
+                        + jsonObjekt.items[i].name + '<button onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>';
+
+                    }
+                    else{
+                        document.getElementById(htmlId).innerHTML =
+                        '<input type="checkbox" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')">'
+                        + jsonObjekt.items[i].name + '<button onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>';
+                    }
                 }
             }
+            aktuellesJson = jsonObjekt;
+
             document.getElementById("listName").innerHTML = jsonObjekt.name;
             document.getElementById("standardText").innerHTML = "";
+            //Hintergrundbilder dynamisch einfügen
 
             /*Sobald eine Liste ausgewählt wurde, wird Eingabefeld für neues Item 
             angezeigt, indem style="hidden" aufgehoben wird*/
@@ -45,12 +59,11 @@ function getList(uebergebene_listId) {
 
             //Variable listId setzen, damit ItemsHinzufuegen()-Funktion damit "arbeiten" kann
             listId = jsonObjekt._id;
+            document.getElementById("main").style['backgroundImage'] = "url(bilder/" + listId + ".jpg)";
         }
     }
 
     request.send();
-
-    document.getElementById("main").style['backgroundImage'] = "url(bilder/" +listId+ ".jpg)"; 
 
 }
 
@@ -100,27 +113,40 @@ function itemLoeschen(itemId) {
 
 }
 
-//Funktion, um Status des Items zu setzen (Abhaken)
-function itemAbhaken(itemId) {
+//Funktion, um Status des Items zu ändern
+function itemAbhaken(uebergebene_itemId) {
+    console.log(aktuellesJson);
+    var url = baseUrl + listId.toString() + "/items/" + uebergebene_itemId.toString();
+    var arraystelle;
+    //herausfinden, welche stelle im array die id hat
+    for(let i = 0; i < aktuellesJson.items.length; i++){
+        if(aktuellesJson.items[i]._id == uebergebene_itemId){
+            arraystelle = i;
+        }
+    }
+    
+    if (aktuellesJson.items[arraystelle].bought == true) {
+        status = false;
+    }
+    else {
+        status = true;
+    }
 
-    var url = baseUrl + listId + "/items/" + itemId;
+    var itemStatus = {
+        "bought": status
+    }
+
     var request = new XMLHttpRequest();
-    var item = {
-        "bought": true
-    }
-
     request.open("PUT", url, true);
-    request.setRequestHeader("Content-Type", "application/json");
     request.setRequestHeader("Authorization", "b96349221079c4008d434972f7b77efd");
+    request.setRequestHeader("Content-Type", "application/json");
     request.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var jsonObjekt = JSON.parse(this.responseText);
-            
+        if (request.readyState == 4 && request.status == 200) {
+            console.log(request.responseText);
             getList(listId);
-            console.log(getList('5da717aa7736ad00170dd8f7'));
-    }
+        }
+    };
 
-    request.send();
+    request.send(JSON.stringify(itemStatus));
 
-}
 }
