@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap');
-
 /* Grid Seitenaufteilung*/
+
 .container {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: 100px 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    'header header' 
-    'menu main';
+    grid-template-rows: 100px auto 50px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'header' 'main' 'footer';
+    overflow-x: hidden;
 }
 
 /* Allgemeine Informationen*/
+
 body {
-    background: url()
+    margin: 0;
+    padding: 0;
 }
 
 * {
@@ -22,10 +23,13 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* CSS header */
+
 header {
-    grid-area: header; 
-    background-color: lightcyan;
+    grid-area: header;
+    background-color: #ececee;
+    /*background-color: #c06c84;*/
 }
 
 header>* {
@@ -34,200 +38,128 @@ header>* {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 40px;
     padding-top: 30px;
-    font-family: 'ZCOOL XiaoWei', serif;
-    color: darkslategrey;
+    /*font-family: 'ZCOOL XiaoWei', serif;*/
+    font-family: 'Oxygen', sans-serif;
+    color: #4c495a;
+    font-weight: normal;
 }
 
-/* CSS menu */
-menu {
-    grid-area: menu; 
+#slogan {
+    color: #c06c84;
+    font-size: 20px;
+    margin-top: -27px;
+    margin-right: -500px;
+    padding: 0;
 }
+
+/* CSS main */
+
+/* Menüzeile */
 
 .liste {
-    height: 10em;
-    width: 15em; 
-    color: pink; 
-    border-style: solid; 
-    border-color: grey; 
-    border-width: 5px; 
-    margin: 10px; 
+    height: 42px;
+    width: 110px;
+    color: white;
+    border-style: solid;
+    border-color: #4c495a;
+    border-width: 5px;
+    margin: 40px 10px 10px 58px;
+    float: left;
+    background-color: #4c495a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*padding-top: 15px; 
+    padding-left: 15px; */
 }
 
-#supermarkt, #apotheke {
-    margin-left: 2.5em; 
-    margin-top: 2.5em; 
-}
-#drogerie, #baumarkt {
-   margin-left: 21em; 
-   margin-top: -11.2em; 
+.liste:hover {
+    transform: scale(1.2);
 }
 
-#supermarkt {
-    background-image: url(bilder/supermarkt.jpg);
-    background-size: 160%; 
-}
-
-#drogerie {
-    background-image: url(bilder/drogerie.jpg);
-    background-size: 160%; 
-    -webkit-filter: blur(0.4px);
-    filter: blur(0.4px);
-}
-
-#apotheke {
-    background-image: url(bilder/apotheke.jpg);
-    background-size: 120%; 
-    -webkit-filter: blur(0.4px);
-    filter: blur(0.4px);
-}
-
-#baumarkt {
-    background-image: url(bilder/baumarkt.jpg);
-    background-size: 130%; 
-    -webkit-filter: blur(0.4px);
-    filter: blur(0.4px);
-}
-
-
-.liste a {
+main .liste a {
     text-align: center;
     vertical-align: middle;
 }
 
-/* CSS main */
+/* Hintergrund main */
+
 main {
-    grid-area: main; 
+    grid-area: main;
+    background-image: url(bilder/startseite.jpg);
+    background-size: 100%;
 }
+
+/* Listenanzeige */
 
 #einkaufsliste {
-    width: 30em; 
-    height: 60em; 
-    border-style: solid; 
-    border-width: 1em; 
-    border-color: grey; 
-    background-color: lightgray;
-    margin-top: 2.5em; 
-    margin-left: 5em; 
-}
- ul{
-     list-style-type: none;
- }
-
- /* Celines Zeug zum ausprobieren */
- .inputGroup {
-    background-color: #fff;
-    display: block;
-    margin: 10px 0;
-    position: relative;
-
-    label {
-      padding: 12px 30px;
-      width: 100%;
-      display: block;
-      text-align: left;
-      color: #3C454C;
-      cursor: pointer;
-      position: relative;
-      z-index: 2;
-      transition: color 200ms ease-in;
-      overflow: hidden;
-
-      &:before {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        content: '';
-        background-color: #5562eb;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%) scale3d(1, 1, 1);
-        transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
-        opacity: 0;
-        z-index: -1;
-      }
-
-      &:after {
-        width: 32px;
-        height: 32px;
-        content: '';
-        border: 2px solid #D1D7DC;
-        background-color: #fff;
-        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
-        background-repeat: no-repeat;
-        background-position: 2px 3px;
-        border-radius: 50%;
-        z-index: 2;
-        position: absolute;
-        right: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        transition: all 200ms ease-in;
-      }
-    }
-
-    input:checked ~ label {
-      color: #fff;
-
-      &:before {
-        transform: translate(-50%, -50%) scale3d(56, 56, 1);
-        opacity: 1;
-      }
-
-      &:after {
-        background-color: #54E0C7;
-        border-color: #54E0C7;
-      }
-    }
-
-    input {
-      width: 32px;
-      height: 32px;
-      order: 1;
-      z-index: 2;
-      position: absolute;
-      right: 30px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      visibility: hidden;
-    }
-  }
-
-
-// codepen formatting
-.form {
-  padding: 0 16px;
-  max-width: 550px;
-  margin: 50px auto;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 36px;
+    /*width: 100%;*/
+    height: 30em;
+    background: rgb(58, 56, 56);
+    background: hsla(350, 50%, 90%, 0.8);
+    color: black;
+    border-top: 8px solid white;
+    border-bottom: 8px solid white;
+    transition: background 1s;
+    margin: 4em 0;
+    padding: 100px 40px 40px 40px;
 }
 
-body {
-  background-color: #D1D7DC;
-  font-family: 'Fira Sans', sans-serif;
+ul {
+    list-style-type: none;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+/* Inputfeld und Button */
+
+#itemHinzufuegen_input {
+    border: 2px solid #4c495a;
+    height: 25px;
+    width: 300px;
+    padding: 5px;
 }
 
-html {
-  box-sizing: border-box;
+/*textarea*/
+
+#itemHinzufuegen_button {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    color: #c06c84;
+    background: #4c495a;
+    border: 1px solid #c06c84;
+    font-size: 30px;
 }
 
-code {
-  background-color: #9AA3AC;
-  padding: 0 8px;
+#itemHinzufuegen_button:hover {
+    color: #4c495a;
+    background: #c06c84;
+    border: 1px solid #4c495a;
 }
-div {
-    max-width: 600px;
-    margin: 24px auto;
+
+#itemHinzufuegen {
+    margin-bottom: 20px; 
+}
+
+/* Listeninhalte */
+.ueberschrift {
+    font-size: 40px; 
+    color: #4c495a; 
+    font-family: 'Oxygen', sans-serif;
+    font-style: bold; 
+}
+
+#einkaufsliste p {
+    font-size: 20px; 
+}
+
+/* footer */
+
+footer {
+    grid-area: footer; 
+    padding: 20px; 
+    color: #4c495a; 
+    background: #ececee; 
 }
