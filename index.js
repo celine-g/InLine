@@ -1,6 +1,7 @@
 const baseUrl = "https://shopping-lists-api.herokuapp.com/api/v1/lists/";
 var listId;
 var aktuellesJson;
+var itemName;
 
 
 //Funktion um bei Klick auf eine Liste, diese im Feld rechts anzeigen zu lassen
@@ -31,17 +32,29 @@ function getList(uebergebene_listId) {
             for (let i = 0; i < jsonObjekt.items.length; i++) {
                 var htmlId = "item" + i;
                 if (jsonObjekt.items[i].name != null) {
+                    itemName = jsonObjekt.items[i].name;
                     //Wenn Itemstatus = true wird item mit 
                     if(jsonObjekt.items[i].bought == true){
                         document.getElementById(htmlId).innerHTML =
-                        '<input type="checkbox" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')" checked>'
-                        + jsonObjekt.items[i].name + '<button onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>';
-
+                        '<form class="form">' +
+                        '<div class="inputGroup">' +         
+                        '<input id="checkbox" type="checkbox">' + 
+                        '<label for="option1" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')" checked></label>' +
+                        itemName +
+                        '<button id="loeschButton" onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>' +
+                        '</div>' +
+                        '</form>'
                     }
                     else{
                         document.getElementById(htmlId).innerHTML =
-                        '<input type="checkbox" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')">'
-                        + jsonObjekt.items[i].name + '<button onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>';
+                        '<form class="form">' +
+                        '<div class="inputGroup">' +         
+                        '<input id="checkbox" type="checkbox">' + 
+                        '<label for="option1" onclick="itemAbhaken(' + "'" + jsonObjekt.items[i]._id + "'" + ')" unchecked></label>' +
+                        itemName +
+                        '<button id="loeschButton" onclick="itemLoeschen(' + "'" + jsonObjekt.items[i]._id + "'" + ')">löschen</button>' +
+                        '</div>' +
+                        '</form>'
                     }
                 }
             }
@@ -127,9 +140,15 @@ function itemAbhaken(uebergebene_itemId) {
     
     if (aktuellesJson.items[arraystelle].bought == true) {
         status = false;
+         for (var i = 0, element = document.getElementsById("aktuellesJson.items[arraystelle]._id"); i < element.length; i++) {
+         element[i].style.background = "red";
+        }
     }
     else {
         status = true;
+        for (var i = 0, element = document.getElementsById("aktuellesJson.items[arraystelle]._id"); i < element.length; i++) {
+            element[i].style.background = "green";
+           }
     }
 
     var itemStatus = {
