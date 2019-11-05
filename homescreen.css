@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap');
+:root {
+    --rosa: #c06c84;
+    --grau: #4c495a;
+    --hellgrau: #ececee;
+    --white: #fff;
+    --gruen: #cce6b3;
+}
+
 /* Grid Seitenaufteilung*/
 
 .container {
@@ -8,7 +15,6 @@
     grid-template-rows: 100px auto 50px;
     grid-template-columns: 1fr;
     grid-template-areas: 'header' 'main' 'footer';
-    overflow-x: hidden;
 }
 
 /* Allgemeine Informationen*/
@@ -24,12 +30,16 @@ body {
     padding: 0;
 }
 
-/* CSS header */
+header, main {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+/* ---------HEADER----------- */
 
 header {
     grid-area: header;
-    background-color: #ececee;
-    /*background-color: #c06c84;*/
+    background-color: var(--hellgrau);
 }
 
 header>* {
@@ -40,49 +50,32 @@ header>* {
 h1 {
     font-size: 40px;
     padding-top: 30px;
-    /*font-family: 'ZCOOL XiaoWei', serif;*/
     font-family: 'Oxygen', sans-serif;
-    color: #4c495a;
+    color: var(--grau);
     font-weight: normal;
 }
 
+/*Leuchtendes Logo*/
+
+#logo {
+    text-shadow: 0 0 5px var(--rosa), 0 0 20px var(--rosa), 0 0 40px var(--rosa), 0 0 60px var(--rosa), 0 0 90px var(--rosa), 0 0 120px var(--rosa), 0 0 160px var(--rosa);
+}
+
 #slogan {
-    color: #c06c84;
-    font-size: 20px;
-    margin-top: -27px;
-    margin-right: -500px;
+    color: var(--rosa);
+    font-size: 18px;
+    margin-top: -30px;
+    margin-right: 200px;
     padding: 0;
+    float:right;
 }
 
-/* CSS main */
-
-/* Menüzeile */
-
-.liste {
-    height: 42px;
-    width: 110px;
-    color: white;
-    border-style: solid;
-    border-color: #4c495a;
-    border-width: 5px;
-    margin: 40px 10px 10px 58px;
-    float: left;
-    background-color: #4c495a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*padding-top: 15px; 
-    padding-left: 15px; */
+#einkaufswagen {
+    float: right;
+    margin: -88px 140px 0 0;
 }
 
-.liste:hover {
-    transform: scale(1.2);
-}
-
-main .liste a {
-    text-align: center;
-    vertical-align: middle;
-}
+/* ---------MAIN----------- */
 
 /* Hintergrund main */
 
@@ -92,11 +85,59 @@ main {
     background-size: 100%;
 }
 
-/* Listenanzeige */
+/* Menüzeile */
 
-#einkaufsliste {
-    /*width: 100%;*/
-    height: 30em;
+.liste {
+    height: 42px;
+    width: 110px;
+    color: white;
+    border-style: solid;
+    border-color: var(--grau);
+    border-width: 5px;
+    margin: 40px 10px 10px 58px;
+    float: left;
+    background-color: var(--grau);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.liste:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+main .liste a {
+    text-align: center;
+    vertical-align: middle;
+}
+
+h2 {
+    margin-bottom: 1em;
+    font-weight: normal;
+    margin-left: 3em;
+    font-size: 30px;
+    color: var(--grau);
+    font-family: 'Oxygen', sans-serif;
+    font-style: normal;
+}
+
+#ueberschrift {
+    font-size: 40px;
+    color: var(--grau);
+    font-family: 'Oxygen', sans-serif;
+    font-style: bold;
+}
+
+#standardText{
+    line-height: 50px;
+}
+
+/* Hintergrund Listen */
+
+#inhalt {
+    min-height: 20em;
+    max-height: auto;
     background: rgb(58, 56, 56);
     background: hsla(350, 50%, 90%, 0.8);
     color: black;
@@ -111,55 +152,169 @@ ul {
     list-style-type: none;
 }
 
-/* Inputfeld und Button */
+/* Itemeingabe */
 
 #itemHinzufuegen_input {
-    border: 2px solid #4c495a;
+    border: 2px solid var(--grau);
     height: 25px;
     width: 300px;
     padding: 5px;
 }
-
-/*textarea*/
 
 #itemHinzufuegen_button {
     width: 35px;
     height: 35px;
     text-align: center;
     vertical-align: middle;
-    color: #c06c84;
-    background: #4c495a;
-    border: 1px solid #c06c84;
+    color: var(--rosa);
+    background:var(--grau);
+    border: 1px solid var(--rosa);
     font-size: 30px;
 }
 
 #itemHinzufuegen_button:hover {
-    color: #4c495a;
-    background: #c06c84;
-    border: 1px solid #4c495a;
+    color: var(--grau);
+    background: var(--rosa);
+    border: 1px solid var(--grau);
 }
 
 #itemHinzufuegen {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    display: none;
+    float: right;
+    margin-right: 10em;
 }
 
-/* Listeninhalte */
-.ueberschrift {
-    font-size: 40px; 
-    color: #4c495a; 
-    font-family: 'Oxygen', sans-serif;
-    font-style: bold; 
+/* Listenanzeige */
+
+.listenelement {
+    width: 30%;
+    height: 30px;
+    margin: 5px 0;
+    margin-left: 5em;
 }
 
-#einkaufsliste p {
-    font-size: 20px; 
+.listenelement:hover {
+    cursor: pointer;
 }
 
-/* footer */
+.listenelement p {
+    display: inline;
+    margin-left: 15px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+#loeschButton {
+    float: right;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    color: var(--rosa);
+    background: var(--grau);
+    border: 1px solid var(--rosa);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#loeschButton:hover {
+    color: var(--grau);
+    background:var(--rosa);
+    border: 1px solid var(--grau);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+#unchecked {
+    background-color: var(--white);
+}
+
+#checked {
+    background-color: var(--gruen);
+}
+
+
+/* ---------FOOTER----------- */
 
 footer {
-    grid-area: footer; 
-    padding: 20px; 
-    color: #4c495a; 
-    background: #ececee; 
+    grid-area: footer;
+    padding: 20px;
+    color: var(--grau);
+    background: var(--hellgrau);
+    text-align: center;
+    font-size: 12px;
+}
+
+/* ---------RESPONSIVENESS----------- */
+ 
+/*ab 1249px wird nur noch InLine im Header angezeigt*/
+ 
+@media (max-width: 1249px) {
+    .liste {
+        margin: 40px 10px -10px 40px;
+    }
+    #itemHinzufuegen {
+        margin-top: 20px;
+    }
+    #einkaufswagen, #slogan, .strich {
+        display: none;
+    }
+}
+ 
+/* sobald erstes Item in die zweite Reihe rutscht */
+ 
+@media (max-width: 1031px) {
+    #itemHinzufuegen {
+        float: left;
+        margin-right: 2em;
+    }
+    h2 {
+        margin-top: 80px;
+    }
+    .listenelement {
+        width: 50%;
+    }
+    #standardText {
+        margin-top: 30px;
+    }
+}
+ 
+/* Handyansicht */
+ 
+@media (max-width: 510px) {
+    .liste {
+        margin: 40px 10px -30px 50px;
+        height: 35px;
+        width: 100px;
+    }
+    #itemHinzufuegen_input {
+        width: 200px;
+        margin-top: 30px;
+    }
+    h2 {
+        margin-left: 2em;
+    }
+    .listenelement {
+        width: 80%;
+        margin-left: 2em;
+    }
+    #kontakt {
+        display: none;
+    }
+    #standardText {
+        margin-top: 50px;
+        line-height: 30px;
+    }
+    #ueberschrift {
+        font-size: 30px;
+    }
+ 
+    @media (max-width:320px) {
+        #standardText{
+            margin-top: 200px; 
+        }
+    }
 }

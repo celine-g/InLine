@@ -1,57 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" >
 
 <head>
+    <!--Angabe des Zeichensets-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Informationen für Anzeige auf Mobilgeräten-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!--Steuerung von Suchmaschinen (keine Indizierung)-->
+    <meta name="robots" content="noindex">
+    <!--Datei von Originaladresse laden-->
+    <meta http-equiv="expires" content="0">
+    <!--Informationen zur Datenpflege-->
+    <meta name="author" content="Celine Goetz and Inka Ernst">
     <title>InLine</title>
-
+    <meta name="description" content="Erstelle selbst Einkaufslisten online">
+    
     <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="homescreen.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
 
 </head>
 
 <body class="container">
     <header>
-        <h1 id="test"> ____ I n L i n e ___________________________________________</h1>
-        <div id=slogan>not only to remember what to buy, moreover to track where your money has gone</div>
+            <h1 id="test"> <span class="strich">____ </span><span id="logo">I n L i n e</span><span class="strich"> ___________________________________________</span></h1>
+            <div id="slogan">... and your purse will shine </div> 
+            <div id="einkaufswagen"><img src="bilder/einkaufswagen.png" alt="Bild eines Einkaufswagens" width="40"></div>
     </header>
     <main id="main">
-        <div class="liste" id="supermarkt">
+        <div class="liste" id="5da717aa7736ad00170dd8f7">
             <a onclick="getList('5da717aa7736ad00170dd8f7')">Supermarkt</a>
         </div>
-        <div class="liste" id="baeckerei">
+        <div class="liste" id="5da717b87736ad00170dd8f9">
             <a onclick="getList('5da717b87736ad00170dd8f9')">Bäckerei</a>
         </div>
-        <div class="liste" id="apotheke">
+        <div class="liste" id="5da717bf7736ad00170dd8fa">
             <a onclick="getList('5da717bf7736ad00170dd8fa')">Apotheke</a>
         </div>
-        <div class="liste" id="drogerie">
+        <div class="liste" id="5da717af7736ad00170dd8f8">
             <a onclick="getList('5da717af7736ad00170dd8f8')">Drogerie</a>
         </div>
-        <div class="liste" id="baumarkt">
+        <div class="liste" id="5da717c57736ad00170dd8fb">
             <a onclick="getList('5da717c57736ad00170dd8fb')">Baumarkt</a>
         </div>
-        <div class="liste" id="sonstiges">
+        <div class="liste" id="5da717de7736ad00170dd8fc">
             <a onclick="getList('5da717de7736ad00170dd8fc')">Sonstiges</a>
         </div>
 
-        <main></main>
-        <div id="einkaufsliste">
-
-            <h1 id="test"> ____ I n L i n e ___________________________________________</h1>
-            <div id=slogan>not only to remember what to buy, moreover to track where your money has gone</div>
-            <div id="itemHinzufuegen">
-                <input type="text" name="itemHinzufuegen" id="itemHinzufuegen_input"
-                    placeholder="Was muss noch gekauft werden?">
-                <button id="itemHinzufuegen_button" type="button" onclick="itemHinzufuegen()">+</button>
+        <div id="inhalt">
+            <div id="itemHinzufuegen">
+                <input type="text" name="itemHinzufuegen" id="itemHinzufuegen_input" 
+                    placeholder="Was muss noch gekauft werden?" autocomplete="off">
+                <button accesskey=13 id="itemHinzufuegen_button" type="submit" title="Item hinzufügen" onclick="itemHinzufuegen()">+</button>
             </div>
-            <p id="standardText">
-                 <span class="ueberschrift"> Willkommen bei InLine! </span><br> Bitte wähle eine Liste aus um deine fälligen Einkäufe zu
-                sehen oder hinzuzufügen.</p>
+            <p id="standardText"> <span id="ueberschrift"> Willkommen bei InLine! </span><br> Bitte wähle eine Liste aus um deine fälligen Einkäufe zu
+                sehen oder hinzuzufügen.</p>
 
             <h2 id="listName"></h2>
             <ul>
@@ -73,10 +76,13 @@
             </ul>
 
         </div>
+
     </main>
 
     <footer>
-        This site is developed and designed by Inka Ernst and Celine Götz. If you have any suggestions please contact
+        This site is developed and designed by <b>In</b>ka Ernst and Ce<b>line</b> Götz. <span id="kontakt">If you have any suggestions please contact
+        <b>inka.ernst@hpe.com</b> or <b>celine.goetz@hpe.com</b>.</span>
     </footer>
+    
 
 </html>
