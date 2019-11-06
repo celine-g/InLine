@@ -51,7 +51,7 @@ function getList(uebergebene_listId) {
             }
             //Listenname (Überschrift) setzen und Wilkommenstext zurücksetzen
             aktuellesJson = jsonObjekt;
-            document.getElementById("listName").innerHTML = jsonObjekt.name;
+            document.getElementById("listName").innerHTML = jsonObjekt.name + ' (' + jsonObjekt.items.length + ')';
             document.getElementById("standardText").innerHTML = "";
 
             //Auf Startseite ist Itemeingabefeld verborgen, beim Aufrufen der getList-Funktion, wird dieses wieder angezeigt
