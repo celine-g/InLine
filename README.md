@@ -1,3 +1,8 @@
+Info: Leider ist der Server auf dem das Backend mal lief down. Schönes Uniprojekt aber mit Inka. <3
+
+
+
+______
 Dieses Projekt beinhaltet eine Website, um ausstehende Einkäufe in Listen zu organisieren. Folgende 6 Listen sind vordefiniert:
 
 Supermarkt
